@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="~{fragments/header :: header}">
+</head>
+<body>
+<div class="container blog-content-container">
+    <h3 th:text="${userModel.title}">Welcome to waylau.com</h3>
+    <form action="/users" method="POST" th:object="${userModel.user}">
+        <input type="hidden" name="id" th:value="*{id}">
+        <br>
+        名称:<br>
+        <input class="form-control" type="text" name="name" th:value="*{name}">
+        <br>
+        年龄:<br>
+        <input class="form-control" type="text" name="age" th:value="*{age}">
+        <br>
+        <input class="btn btn-default" type="submit" value="提交">
+    </form>
+</div>
+<div th:replace="~{fragments/footer :: footer}">...</div>
+</body>
+</html>
